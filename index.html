@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#090a0c">
+  <title>AIMBOOST Mobile — Treino de Mira</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar"><div class="brand"><span class="brand-icon">◎</span><span>AIM<span class="accent">BOOST</span><small>MOBILE EDITION</small></span></div><div class="level">NV <b id="level">1</b></div></header>
+    <main>
+      <section id="home" class="view active">
+        <div class="hero"><div class="eyebrow">TREINE. EVOLUA. DOMINE.</div><h1>SUA MIRA.<br><em>SEU PRÓXIMO NÍVEL.</em></h1><p>Treinos rápidos, feitos para a tela do seu celular.</p><button class="primary" id="quickStart">COMEÇAR TREINO <span>↗</span></button><div class="hero-circle">◎</div></div>
+        <div class="section-head"><h2>SEU DESEMPENHO</h2><span class="muted">Neste dispositivo</span></div>
+        <div class="stats-grid"><article class="stat"><span>TREINOS</span><strong id="totalSessions">0</strong></article><article class="stat"><span>PRECISÃO MÉDIA</span><strong id="avgAcc">0%</strong></article><article class="stat"><span>MELHOR PONTUAÇÃO</span><strong id="bestScore">0</strong></article><article class="stat"><span>XP TOTAL</span><strong id="xp">0</strong></article></div>
+        <div class="section-head"><h2>MISSÃO DO DIA</h2><span class="orange">+50 XP</span></div><div class="mission"><div class="mission-top"><b>Complete 3 treinos</b><span id="missionLabel">0/3</span></div><div class="progress"><div id="missionFill"></div></div><p id="missionHelp">Treine para completar o desafio.</p></div>
+        <div class="section-head"><h2>MODOS EM DESTAQUE</h2></div><div class="featured"><button data-go="fixed"><span data-feature-icon="target"></span><b>FIXO</b><small>Toque rápido</small></button><button data-go="tracking"><span data-feature-icon="eye"></span><b>TRACKING</b><small>Siga o alvo</small></button><button data-go="reflex"><span data-feature-icon="zap"></span><b>REFLEXO</b><small>Reaja a tempo</small></button></div>
+      </section>
+      <section id="train" class="view"><div class="page-title"><span class="eyebrow">ARENA TÁTICA</span><h1>ESCOLHA SEU TREINO</h1><p>Oito modos ajustados para comandos por toque.</p></div><h3>MODO DE TREINO</h3><div class="mode-grid" id="modeGrid"></div><h3>DIFICULDADE</h3><div class="difficulty" id="difficultyGrid"></div><div class="setup"><div><b>DURAÇÃO</b><span>30 segundos</span></div><div><b>CONTROLE</b><span>Toque na tela</span></div></div><button class="primary wide" id="startButton">INICIAR TREINO <span>↗</span></button></section>
+      <section id="arena" class="view"><div class="arena-header"><button id="leaveArena" class="icon-button" aria-label="Sair da arena">✕</button><div><b id="arenaMode">FIXO</b><small id="arenaDiff">NORMAL</small></div><div class="timer" id="timer">30.0</div></div><div class="arena-stats"><div><span>PONTOS</span><b id="score">0</b></div><div><span>ACERTOS</span><b id="hits">0</b></div><div><span>PRECISÃO</span><b id="accuracy">0%</b></div></div><div id="gameWrap"><canvas id="game" aria-label="Área de treino de mira"></canvas><div id="gameHint">TOQUE NOS ALVOS</div><div id="countdown" class="overlay"><strong>3</strong></div><div id="results" class="overlay hidden"><div class="result-card"><span class="eyebrow">TREINO CONCLUÍDO</span><h2>BOA JOGADA!</h2><div class="result-number" id="finalScore">0</div><p>PONTOS</p><div class="result-grid"><div><b id="finalHits">0</b><span>ACERTOS</span></div><div><b id="finalAccuracy">0%</b><span>PRECISÃO</span></div></div><div class="earned" id="earnedXp">+0 XP</div><button class="primary wide" id="restart">REPETIR TREINO</button><button class="secondary wide" id="backToTrain">ESCOLHER OUTRO MODO</button></div></div></div><p class="arena-tip" id="arenaTip">Toque nos alvos para pontuar.</p></section>
+      <section id="missions" class="view"><div class="page-title"><span class="eyebrow">DESAFIOS AIMBOOST</span><h1>MISSÕES</h1><p>Conclua desafios diários e ganhe XP extra. O progresso reinicia a cada dia.</p></div><div class="mission-overview"><span>MISSÕES CONCLUÍDAS HOJE</span><strong id="missionsDone">0 / 8</strong><div class="progress"><div id="missionsTotalFill"></div></div></div><div class="section-head"><h2>DESAFIOS DIÁRIOS</h2><span class="orange">ATUALIZA AUTOMATICAMENTE</span></div><div id="missionCards" class="mission-cards"></div><p class="mission-note">As recompensas são entregues automaticamente ao terminar um treino. O progresso fica salvo neste dispositivo.</p><button class="primary wide" id="missionTrain">IR PARA TREINAMENTO <span>↗</span></button></section>
+      <section id="profile" class="view"><div class="page-title"><span class="eyebrow">PROGRESSO LOCAL</span><h1>SEU PERFIL</h1><p>Seus resultados ficam salvos neste navegador.</p></div><div class="profile-card"><div class="profile-avatar">◎</div><div><b>JOGADOR AIMBOOST</b><p id="profileLevel">NÍVEL 1</p></div></div><div class="section-head"><h2>XP E EVOLUÇÃO</h2><b id="xpProgressLabel">0 / 500 XP</b></div><div class="progress"><div id="xpFill"></div></div><div class="section-head"><h2>ÚLTIMOS TREINOS</h2></div><div id="history" class="history"></div><button class="secondary wide" id="resetData">APAGAR PROGRESSO LOCAL</button></section>
+    </main>
+    <nav class="bottom-nav" aria-label="Navegação principal"><button data-view="home" class="active"><span>⌂</span>INÍCIO</button><button data-view="train"><span>◎</span>TREINAR</button><button data-view="missions"><span>◈</span>MISSÕES</button><button data-view="profile"><span>▥</span>PERFIL</button></nav>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
